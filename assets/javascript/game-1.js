@@ -14,19 +14,27 @@ var guesses = 9;
 
 document.onkeyup = function (event) {
 
+    //When user presses a key and it matches the randomly selected alphabet, increase the win count.
     var userGuess = event.key;
+
     if (userGuess === compAlphabet) {
         wins++;
-        
+        guesses--;
+
+        //If user's guess is incorrect, decrease the guess count
     } else {
         guesses--;
     }
 
+    //When guess count reaches 0 add to Losses & reset the guess count to 9.
     if (guesses === 0) {
         losses++;
         guesses = 9;
-        compAlphabet;
-    } 
+    }
+
+    // while (userGuess !== compAlphabet){
+    //     guessedAlphabet.push(userGuess + '');
+    // }
 
     document.getElementById('winCount').innerHTML = wins;
     document.getElementById('lossCount').innerHTML = losses;

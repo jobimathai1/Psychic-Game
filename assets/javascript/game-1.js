@@ -1,6 +1,7 @@
 //Create an array of alphabets
 var alphabets = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
+//Select a random Alphabet from the Array
 var compAlphabet = alphabets[Math.floor(Math.random() * alphabets.length)];
 console.log(compAlphabet);
 
@@ -16,14 +17,16 @@ document.onkeyup = function (event) {
     var userGuess = event.key;
     if (userGuess === compAlphabet) {
         wins++;
-
+        
     } else {
         guesses--;
     }
 
     if (guesses === 0) {
         losses++;
-    }
+        guesses = 9;
+        compAlphabet;
+    } 
 
     document.getElementById('winCount').innerHTML = wins;
     document.getElementById('lossCount').innerHTML = losses;
@@ -31,11 +34,11 @@ document.onkeyup = function (event) {
     document.getElementById('guessedAlphabet').innerHTML = guessedAlphabet;
 }
 
-function resetGame() {
-    var guesses = 9;
-    var compAlphabet = alphabets[Math.floor(Math.random() * alphabets.length)];
-    return(compAlphabet);
-}
+// function resetGame() {
+//     var guesses = 9;
+//     var compAlphabet = alphabets[Math.floor(Math.random() * alphabets.length)];
+//     return(compAlphabet);
+// }
 
 // // You're going to make a game just like the one in the video. Essentially, the app randomly picks a letter, and the user has to guess which letter the app chose. Put the following text on your page:
 // // Guess what letter I'm thinking of

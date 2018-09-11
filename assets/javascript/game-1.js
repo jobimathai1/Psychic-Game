@@ -11,7 +11,7 @@ var wins = 0;
 var losses = 0;
 var guesses = 9;
 
-
+//function to start the game when the user presses any key on the keyboard
 document.onkeyup = function (event) {
 
     //When user presses a key and it matches the randomly selected alphabet, increase the win count.
@@ -21,7 +21,7 @@ document.onkeyup = function (event) {
         wins++;
         guesses--;
 
-        //If user's guess is incorrect, decrease the guess count
+    //If user's guess is incorrect, decrease the guess count
     } else {
         guesses--;
     }
@@ -32,14 +32,28 @@ document.onkeyup = function (event) {
         guesses = 9;
     }
 
-    // while (userGuess !== compAlphabet){
-    //     guessedAlphabet.push(userGuess + '');
+    // function addGuess() {
+    //     var inp = document.getElementById('guessedAlphabet');
+    //     guessedAlphabet.push(inp.value);
+    //     inp.value = "";
+    //         }
+
+    // function showGuess(){
+    //     document.getElementById("guessAlphabet").innerHTML = guessedAlphabet.join(", ");
     // }
+
+   //loop through the user's input & put it in an array.
+    for (var j = 0; j < 9; j++){
+    document.getElementById("guessedAlphabet").innerHTML = userGuess;
+    
+    }
+
+    
 
     document.getElementById('winCount').innerHTML = wins;
     document.getElementById('lossCount').innerHTML = losses;
     document.getElementById('guessCount').innerHTML = guesses;
-    document.getElementById('guessedAlphabet').innerHTML = guessedAlphabet;
+    
 }
 
 // function resetGame() {

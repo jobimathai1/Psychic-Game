@@ -11,8 +11,10 @@ var wins = 0;
 var losses = 0;
 var guesses = 9;
 
+
+
 //function to start the game when the user presses any key on the keyboard
-document.onkeyup = function (event) {
+document.onkeypress = function (event) {
 
     //When user presses a key and it matches the randomly selected alphabet, increase the win count.
     var userGuess = event.key;
@@ -44,8 +46,8 @@ document.onkeyup = function (event) {
 
    //loop through the user's input & put it in an array.
     for (var j = 0; j < 9; j++){
-    document.getElementById("guessedAlphabet").innerHTML = userGuess;
-    
+        console.log(userGuess);
+    document.getElementById("guessedAlphabet").appendChild(userGuess);
     }
 
     

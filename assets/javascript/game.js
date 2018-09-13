@@ -32,17 +32,18 @@ document.onkeypress = function (event) {
         guesses = 9;
     }
 
-    //loop through the user's input & put it in an array.
+    //loop through the user's input & display it.
     for (var j = 0; j < 9; j++) {
         console.log(userGuess);
         var userEnter = $("<guessedLetter>");
         userEnter.addClass("alpha")
         userEnter.attr("data-letter", j[j])
         userEnter.text(j[j]);
+        console.log(j);
         $("guessedAlphabet").append(userEnter)
     }
 
-    
+//I tried to add each alphabet entered by the user, but no luck :(  I can display the most recent alphabet entered by the user though.
     $("#guessedAlphabet").on("keyup", function () {
         var guessedAlpha = $("<div>")
         guessedAlpha.addClass("letter")
@@ -51,6 +52,12 @@ document.onkeypress = function (event) {
         console.log(guessedAlpha);
     })
 
+    //reset the user's guessed alphabet when it is 9
+    if (userGuess === 9) {
+        $("#guessedAlphabet").empty();
+    }
+
+    //display the wins, losses & number of guesses left
     document.getElementById('winCount').innerHTML = wins;
     document.getElementById('lossCount').innerHTML = losses;
     document.getElementById('guessCount').innerHTML = guesses;
